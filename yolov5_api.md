@@ -16,6 +16,7 @@ https://github.com/bjornstenger/xml2yolo
 火焰测试数据，如果使用要改成coco对应形式
 https://github.com/ntsmoura/FireNET-YoloV5?tab=readme-ov-file
 
+```
 # Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]
 path: ../fire # dataset root dir
 train: train.txt # train images (relative to 'path') 118287 images
@@ -25,7 +26,7 @@ test: # 20288 of 40670 images, submit to https://competitions.codalab.org/compet
 # Classes
 names:
   0: fire
-  
+``` 
 
 # 4.训练
 火焰数据训练，epochs大些loss能降下来，检测可以检测出来
