@@ -1,0 +1,12 @@
+apt  install ffmpeg
+
+https://www.johnvansickle.com/ffmpeg/old-releases/
+
+vi ~/.bashrc
+
+export FFMPEG_PATH=/home/admin1/MuseTalk-main/MuseTalk-main/ffmpeg-4.1.4-amd64-static
+
+source ~/.bashrc
+
+
+$FFMPEG_PATH/ffmpeg -version
