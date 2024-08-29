@@ -1,0 +1,54 @@
+transformers最新版bug
+Assistant: 一Exception in thread Thread-5 (generate):
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/transformers/generation/utils.py", line 1989, in generate
+    result = self._sample(
+  File "/usr/local/lib/python3.10/dist-packages/transformers/generation/utils.py", line 2932, in _sample
+    outputs = self(**model_inputs, return_dict=True)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/accelerate/hooks.py", line 169, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/root/.cache/huggingface/modules/transformers_modules/glm-4-9b/modeling_chatglm.py", line 1005, in forward
+    transformer_outputs = self.transformer(
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/root/.cache/huggingface/modules/transformers_modules/glm-4-9b/modeling_chatglm.py", line 901, in forward
+    hidden_states, presents, all_hidden_states, all_self_attentions = self.encoder(
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/root/.cache/huggingface/modules/transformers_modules/glm-4-9b/modeling_chatglm.py", line 726, in forward
+    layer_ret = layer(
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/accelerate/hooks.py", line 169, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/root/.cache/huggingface/modules/transformers_modules/glm-4-9b/modeling_chatglm.py", line 629, in forward
+    attention_output, kv_cache = self.self_attention(
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/accelerate/hooks.py", line 169, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/root/.cache/huggingface/modules/transformers_modules/glm-4-9b/modeling_chatglm.py", line 494, in forward
+    cache_k, cache_v = kv_cache
+	ValueError: too many values to unpack (expected 2)
+
+
+
+pip install transformers==4.41.2
