@@ -85,3 +85,39 @@ else:
     print("无法演示CUDA张量运算，因为CUDA不可用.")
 
 ```
+
+容器驱动nvidia-container-toolkit
+
+```
+
+curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
+  && curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | \
+    sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
+    sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list \
+  && \
+    sudo apt-get update
+
+sudo apt-get install -y nvidia-container-toolkit
+
+sudo nvidia-ctk runtime configure --runtime=docker
+
+cat /etc/docker/daemon.json 
+{
+    "default-runtime": "nvidia",
+
+    "bip": "192.168.88.1/24",
+    "registry-mirrors": [
+        "https://docker.nju.edu.cn"
+    ],
+    "runtimes": {
+        "nvidia": {
+            "args": [],
+            "path": "nvidia-container-runtime"
+        }
+    }
+}
+
+sudo systemctl restart docker
+
+sudo docker run --rm --runtime=nvidia --gpus all ubuntu nvidia-smi
+```
