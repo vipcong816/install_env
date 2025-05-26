@@ -1,0 +1,21 @@
+前端调用
+chat界面，点击文本前端调用/v1/conversation/completion，要这个接口有返回了才会200 ，因此前面的日志都是接口内的程序
+2025-05-26 16:29:38,027 INFO     3723999 127.0.0.1 - - [26/May/2025 16:29:38] "GET /v1/user/info HTTP/1.1" 200 -
+2025-05-26 16:29:38,032 INFO     3723999 127.0.0.1 - - [26/May/2025 16:29:38] "GET /v1/user/tenant_info HTTP/1.1" 200 -
+2025-05-26 16:29:38,033 INFO     3723999 127.0.0.1 - - [26/May/2025 16:29:38] "GET /v1/tenant/list HTTP/1.1" 200 -
+2025-05-26 16:29:39,984 INFO     3723999 127.0.0.1 - - [26/May/2025 16:29:39] "GET /v1/conversation/list?dialog_id=3aece26a2ede11f092680242ac120006 HTTP/1.1" 200 -
+2025-05-26 16:29:44,659 INFO     3723999 127.0.0.1 - - [26/May/2025 16:29:44] "POST /v1/conversation/set HTTP/1.1" 200 -
+2025-05-26 16:29:44,696 INFO     3723999 127.0.0.1 - - [26/May/2025 16:29:44] "GET /v1/conversation/list?dialog_id=3aece26a2ede11f092680242ac120006 HTTP/1.1" 200 -
+2025-05-26 16:29:44,983 INFO     3723999 HTTP Request: POST https://open.bigmodel.cn/api/paas/v4/embeddings "HTTP/1.1 200 OK"
+2025-05-26 16:29:45,131 INFO     3723999 POST http://localhost:1200/ragflow_309f191621b611f0b5850242ac120006/_search [status:200 duration:0.067s]
+2025-05-26 16:29:45,884 INFO     3723999 HTTP Request: POST https://open.bigmodel.cn/api/paas/v4/chat/completions "HTTP/1.1 200 OK"
+2025-05-26 16:29:46,590 INFO     3723999 127.0.0.1 - - [26/May/2025 16:29:46] "POST /v1/conversation/completion HTTP/1.1" 200 -
+
+
+前端的调用过程ragflow-main\web\src\pages\chat\index.tsx  是界面的代码
+
+
+调用hook里面的handleSendMessage
+有些功能hook会在E:\ragflow-main\web\src\hooks的chat-hook里面
+后端的api在
+@/services/chat-service  import api from '@/utils/api';  逐级找到包装好的api
