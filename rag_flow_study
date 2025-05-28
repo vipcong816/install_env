@@ -1,3 +1,5 @@
+问答
+
 前端调用
 chat界面，点击文本前端调用/v1/conversation/completion，要这个接口有返回了才会200 ，因此前面的日志都是接口内的程序
 2025-05-26 16:29:38,027 INFO     3723999 127.0.0.1 - - [26/May/2025 16:29:38] "GET /v1/user/info HTTP/1.1" 200 -
@@ -19,3 +21,27 @@ chat界面，点击文本前端调用/v1/conversation/completion，要这个接�
 有些功能hook会在E:\ragflow-main\web\src\hooks的chat-hook里面
 后端的api在
 @/services/chat-service  import api from '@/utils/api';  逐级找到包装好的api
+
+
+
+
+
+
+
+文档解析 解析按钮
+前端
+E:\ragflow-main\web\src\pages\dataset\dataset
+import { useBulkOperateDataset } from './use-bulk-operate-dataset';   @/hooks/use-document-request';   import kbService, { listDocument } from '@/services/knowledge-service';   document_run,} = api;
+  document_run: `${api_host}/document/run`,
+
+
+后端
+
+前面进行文本分块，然后送入redis队列
+queue_tasks(doc, bucket, name, 0)
+
+
+task进行异步embedding解析
+
+
+
