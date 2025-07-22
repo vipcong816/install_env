@@ -4,3 +4,6 @@
 # 3.更改Docker Desktop的Disk image location为D盘
 # 
 ![](assets/docker1.png)
+
+https://docs.docker.com/desktop/setup/install/windows-install/
+https://zhuanlan.zhihu.com/p/1906422110630416572
