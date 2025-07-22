@@ -5,3 +5,5 @@
 
 
 
+Docker Desktop distro installation failed
+以管理员方式打开
