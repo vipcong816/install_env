@@ -1,9 +1,7 @@
-# 
-# 1.下载安装
+# 下载https://docs.docker.com/desktop/setup/install/windows-install/
+# 1.安装https://zhuanlan.zhihu.com/p/1906422110630416572
 # 2.如一直加载中，重新更新一下wsl版本，powershell如下命令wsl --update
-# 3.更改Docker Desktop的Disk image location为D盘
 # 
-![](assets/docker1.png)
 
-https://docs.docker.com/desktop/setup/install/windows-install/
-https://zhuanlan.zhihu.com/p/1906422110630416572
+
+
